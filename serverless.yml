@@ -13,15 +13,8 @@ functions:
     handler: handler.checkOut
     events:
       - schedule: cron(15 18 ? * MON-FRI *)
-      - http:
-          path: /check_out
-          method: GET
-          cors: true
+
   check_in:
     handler: handler.checkIn
     events:
       - schedule: cron(45 08 ? * MON-FRI *)
-      - http:
-          path: /check_in
-          method: GET
-          cors: true
