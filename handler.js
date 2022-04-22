@@ -14,11 +14,10 @@ let config = {
   },
   data: data,
 };
-
 module.exports.checkOut = async (event) => {
   try {
     let loginData = await axios(config);
-    let checkInConfig = {
+    let checkOutConfig = {
       method: "post",
       url: "https://bottle.rigohr.com/v1/leave-time/attendance/manual?isCheckIn=false",
       headers: {
@@ -28,13 +27,12 @@ module.exports.checkOut = async (event) => {
       },
       data: JSON.stringify({}),
     };
-    await axios(checkInConfig);
+    await axios(checkOutConfig);
     return { statusCode: 204 };
   } catch (err) {
     console.log(err);
   }
 };
-
 module.exports.checkIn = async (event) => {
   try {
     let loginData = await axios(config);
